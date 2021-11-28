@@ -3,7 +3,7 @@ import { MDBInput, MDBCard, MDBBtn } from "mdb-react-ui-kit";
 
 const ImageLinkForm = ({ onInputChange, onSubmit }) => {
   return (
-    <div>
+    <div className="mx-2">
       <MDBCard
         style={{ maxWidth: "600px", margin: "0 auto", padding: "1em" }}
         className="my-1"
