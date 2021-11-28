@@ -4,7 +4,7 @@ import React from "react";
 import "./FaceDetection.css";
 
 const Facedetection = ({ imageUrl, box }) => {
-  console.log(box);
+  // console.log(box);
   return (
     <>
       {imageUrl.length && (
