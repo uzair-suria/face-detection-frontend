@@ -3,6 +3,7 @@ import { MDBContainer } from "mdb-react-ui-kit";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Navigation from "./components/Navigation/Navigation";
 import Rank from "./components/Rank/Rank";
+import SignIn from "./components/SignIn/SignIn";
 
 const initialState = {
   input: "",
@@ -95,7 +96,8 @@ class App extends React.Component {
           isSignedIn={this.state.isSignedIn}
         />
         <Rank name="Uzair" count={5} />
-        <ImageLinkForm />
+        <ImageLinkForm onInputChange={this.onInputChange} onSubmit={onSubmit} />
+        <SignIn />
       </MDBContainer>
     );
   }
