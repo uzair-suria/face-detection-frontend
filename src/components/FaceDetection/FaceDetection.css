@@ -1,0 +1,13 @@
+.container {
+  position: relative;
+  width: 325px;
+}
+
+.box {
+  border: blue solid 2px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
