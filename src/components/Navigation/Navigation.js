@@ -17,7 +17,7 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
   const [showBasic, setShowBasic] = useState(false);
 
   return (
-    <MDBNavbar expand="lg" light bgColor="light">
+    <MDBNavbar expand="lg" light bgColor="light" sticky>
       <MDBContainer fluid={true}>
         <MDBNavbarBrand href="#">
           <img src={brain} height="30" alt="" loading="lazy" />
@@ -36,15 +36,30 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
           <MDBNavbarNav className="d-flex mw-100 justify-content-end">
             {isSignedIn ? (
               <MDBNavbarItem>
-                <MDBNavbarLink href="#">Sign Out</MDBNavbarLink>
+                <MDBNavbarLink
+                  className="navBtn"
+                  onClick={() => onRouteChange("signout")}
+                >
+                  Sign Out
+                </MDBNavbarLink>
               </MDBNavbarItem>
             ) : (
               <>
                 <MDBNavbarItem>
-                  <MDBNavbarLink href="#">Register</MDBNavbarLink>
+                  <MDBNavbarLink
+                    className="navBtn"
+                    onClick={() => onRouteChange("register")}
+                  >
+                    Register
+                  </MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
-                  <MDBNavbarLink href="#">Sign In</MDBNavbarLink>
+                  <MDBNavbarLink
+                    className="navBtn"
+                    onClick={() => onRouteChange("signin")}
+                  >
+                    Sign In
+                  </MDBNavbarLink>
                 </MDBNavbarItem>
               </>
             )}
