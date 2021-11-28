@@ -15,7 +15,7 @@ const ImageLinkForm = ({ onInputChange, onSubmit }) => {
           <MDBInput
             label="Image URL"
             id="imageUrl"
-            type="text"
+            type="url"
             size="lg"
             onChange={onInputChange}
           />
