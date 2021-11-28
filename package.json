@@ -1,7 +1,7 @@
 {
-  "name": "mdb-react-template",
+  "name": "face-detection-frontend",
   "version": "2.0.0",
-  "description": "template for mdb-react-ui-kit",
+  "description": "Face Detection Frontend Project with Material UI Design",
   "private": true,
   "dependencies": {
     "react": "17.0.1",
