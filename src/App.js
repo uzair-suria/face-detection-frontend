@@ -4,6 +4,8 @@ import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Navigation from "./components/Navigation/Navigation";
 import Rank from "./components/Rank/Rank";
 import SignIn from "./components/SignIn/SignIn";
+import Register from "./components/Register/Register";
+import FaceDetection from "./components/FaceDetection/FaceDetection";
 
 const initialState = {
   input: "",
@@ -25,6 +27,18 @@ class App extends React.Component {
     super();
     this.state = initialState;
   }
+
+  loadUser = (user) => {
+    this.setState({
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        entries: user.entries,
+        joined: user.joined,
+      },
+    });
+  };
 
   calculateFaceLocation = (data) => {
     const rawBoundingBox =
@@ -90,14 +104,40 @@ class App extends React.Component {
     };
     return (
       <MDBContainer fluid className="px-0">
-        <Navigation
-          onRouteChange={this.onRouteChange}
-          route={this.state.route}
-          isSignedIn={this.state.isSignedIn}
-        />
-        <Rank name="Uzair" count={5} />
-        <ImageLinkForm onInputChange={this.onInputChange} onSubmit={onSubmit} />
-        <SignIn />
+        <>
+          <Navigation
+            onRouteChange={this.onRouteChange}
+            route={this.state.route}
+            isSignedIn={this.state.isSignedIn}
+          />
+          {this.state.route === "home" ? (
+            <>
+              <Rank
+                name={this.state.user.name}
+                count={this.state.user.entries}
+              />
+              <ImageLinkForm
+                onInputChange={this.onInputChange}
+                onSubmit={onSubmit}
+              />
+              <FaceDetection
+                imageUrl={this.state.imageUrl}
+                box={this.state.parsedBoundingBox}
+              />
+            </>
+          ) : this.state.route === "signin" ||
+            this.state.route === "signout" ? (
+            <SignIn
+              loadUser={this.loadUser}
+              onRouteChange={this.onRouteChange}
+            />
+          ) : (
+            <Register
+              loadUser={this.loadUser}
+              onRouteChange={this.onRouteChange}
+            />
+          )}
+        </>
       </MDBContainer>
     );
   }
